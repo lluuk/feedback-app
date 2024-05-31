@@ -50,6 +50,9 @@ importers:
       mongoose:
         specifier: ^8.4.1
         version: 8.4.1
+      types:
+        specifier: workspace:*
+        version: link:../../packages/types
       zod:
         specifier: ^3.23.8
         version: 3.23.8

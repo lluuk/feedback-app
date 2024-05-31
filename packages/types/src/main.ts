@@ -1,4 +1,9 @@
-export type FeedbackType = 'bug' | 'suggestion';
+export enum FeedbackTypeEnum {
+  bug = 'bug',
+  suggestion = 'suggestion',
+}
+
+export type FeedbackType = `${FeedbackTypeEnum}`;
 
 export interface IFeedback {
   name: string;
