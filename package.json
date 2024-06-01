@@ -9,7 +9,8 @@
     "prepare": "husky",
     "types": "pnpm --filter types",
     "api": "pnpm --filter api",
-    "validation": "pnpm --filter validation"
+    "validation": "pnpm --filter validation",
+    "client": "pnpm --filter client"
   },
   "keywords": [],
   "author": "",
