@@ -71,6 +71,13 @@ importers:
         version: 5.4.5
 
   packages/types:
+    dependencies:
+      validation:
+        specifier: workspace:*
+        version: link:../validation
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       typescript:
         specifier: ^5.2.2
@@ -83,6 +90,13 @@ importers:
         version: 3.9.1(@types/node@20.12.14)(rollup@4.18.0)(typescript@5.4.5)(vite@5.2.12(@types/node@20.12.14))
 
   packages/validation:
+    dependencies:
+      types:
+        specifier: workspace:*
+        version: link:../types
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       typescript:
         specifier: ^5.2.2
