@@ -8,7 +8,8 @@
     "format": "prettier --write .",
     "prepare": "husky",
     "types": "pnpm --filter types",
-    "api": "pnpm --filter api"
+    "api": "pnpm --filter api",
+    "validation": "pnpm --filter validation"
   },
   "keywords": [],
   "author": "",
