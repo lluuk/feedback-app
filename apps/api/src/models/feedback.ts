@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-import { type IFeedback, FeedbackTypeEnum } from 'types';
+import { type Feedback as FeedbackType, FeedbackTypeEnum } from 'types';
 
-const feedbackSchema = new mongoose.Schema<IFeedback>({
+const feedbackSchema = new mongoose.Schema<FeedbackType>({
   name: { type: String, required: true },
   email: { type: String, required: true },
   type: { type: String, enum: FeedbackTypeEnum, required: true },
