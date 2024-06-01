@@ -1,3 +1,6 @@
+import { z } from 'zod';
+import { feedbackSchema } from 'validation';
+
 export enum FeedbackTypeEnum {
   bug = 'bug',
   suggestion = 'suggestion',
@@ -5,11 +8,4 @@ export enum FeedbackTypeEnum {
 
 export type FeedbackType = `${FeedbackTypeEnum}`;
 
-export interface IFeedback {
-  name: string;
-  email: string;
-  type: FeedbackType;
-  title: string;
-  message: string;
-  createdAt?: Date;
-}
+export type Feedback = z.infer<typeof feedbackSchema>;
