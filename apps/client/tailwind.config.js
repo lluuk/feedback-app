@@ -7,10 +7,11 @@ export default {
       colors: {
         green: '#34D399',
         gray: '#EAF0F6',
-        lightGray: '#F8FAFC',
-        textBlack: '#1E293B',
-        textGray: '#64748B',
-        borderGray: '#E2E8F0',
+        'light-gray': '#F8FAFC',
+        black: '#1E293B',
+        'defaul-text-gray': '#64748B',
+        'default-border-gray': '#E2E8F0',
+        red: '#DC2626',
       },
       borderRadius: {
         DEFAULT: '3px',
