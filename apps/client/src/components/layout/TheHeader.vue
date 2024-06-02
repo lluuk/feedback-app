@@ -17,10 +17,14 @@ const isDialogOpen = ref(false);
       alt="Feedback app logo"
     />
     <div class="flex gap-x-2 items-center">
-      <BaseButton>All feedback</BaseButton>
+      <BaseButton :variant="isDialogOpen ? 'secondary' : 'primary'">
+        All feedback
+      </BaseButton>
       <BaseDialog title="Add new feedback" v-model="isDialogOpen">
         <template #trigger>
-          <BaseButton variant="secondary">New feedback</BaseButton>
+          <BaseButton :variant="isDialogOpen ? 'primary' : 'secondary'">
+            New feedback
+          </BaseButton>
         </template>
         <template #content>
           <AddFeedbackForm
