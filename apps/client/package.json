@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@iconify/vue": "^4.1.2",
     "@vee-validate/zod": "^4.12.8",
     "radix-vue": "^1.8.2",
     "types": "workspace:*",
