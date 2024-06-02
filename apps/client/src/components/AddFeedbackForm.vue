@@ -12,6 +12,9 @@ import BaseSelect from '@/components/BaseSelect.vue';
 import BaseButton from '@/components/BaseButton.vue';
 
 import { axiosInstance } from '@/services/axios';
+import { useFeedback } from '@/stores/feedback';
+
+const { setFeedbacks, feedbacks } = useFeedback();
 
 const selectOptions = Object.values(FeedbackTypeEnum);
 
@@ -28,9 +31,12 @@ const onSubmit = async (values: any) => {
       { method: 'POST', data: values },
       axiosInstance,
     );
-    console.log(data.value?.feedback); // todo
-    toast.success('Feedback succesfully created!');
-    emits('submit');
+
+    if (data.value?.feedback) {
+      setFeedbacks([data.value.feedback, ...feedbacks.value]);
+      toast.success('Feedback succesfully created!');
+      emits('submit');
+    }
   } catch (error) {
     if (error instanceof Error) {
       toast.error(error.message);
