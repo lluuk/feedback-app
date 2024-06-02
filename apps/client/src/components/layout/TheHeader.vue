@@ -9,7 +9,7 @@ const isDialogOpen = ref(false);
 
 <template>
   <header
-    class="flex items-center justify-between py-2 px-4 border-b border-default-border-gray"
+    class="flex items-center justify-between py-4 px-4 border-b border-default-border-gray"
   >
     <img
       src="@/assets/images/logo.png"

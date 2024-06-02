@@ -28,7 +28,7 @@ defineProps<Props>();
   >
     <PaginationList
       v-slot="{ items }"
-      class="flex items-center gap-1 text-white border border-default-border-gray rounded"
+      class="flex items-center text-white border border-default-border-gray rounded-lg"
     >
       <PaginationPrev
         class="w-9 h-9 flex items-center justify-center disabled:opacity-50 focus-within:outline focus-within:outline-1 focus-within:outline-offset-1 rounded text-black"
@@ -39,7 +39,7 @@ defineProps<Props>();
         <PaginationListItem
           v-if="page.type === 'page'"
           :key="index"
-          class="w-9 h-9 border rounded text-black data-[selected]:bg-green data-[selected]:border-green data-[selected]:text-white hover:bg-white/10xww transition focus-within:outline focus-within:outline-1 focus-within:outline-offset-1"
+          class="w-9 h-9 border-r border-l border-default-border-gray text-black data-[selected]:bg-green data-[selected]:border-green data-[selected]:text-white hover:bg-white/10xww transition focus-within:outline focus-within:outline-1 focus-within:outline-offset-1"
           :value="page.value"
         >
           {{ page.value }}
