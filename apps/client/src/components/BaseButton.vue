@@ -4,7 +4,7 @@ import { computed } from 'vue';
 type ButtonVariant = 'primary' | 'secondary';
 
 interface Props {
-  variant: ButtonVariant;
+  variant?: ButtonVariant;
 }
 
 const props = withDefaults(defineProps<Props>(), {
