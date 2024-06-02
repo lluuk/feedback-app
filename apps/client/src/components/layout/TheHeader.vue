@@ -1,5 +1,10 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import BaseButton from '@/components/BaseButton.vue';
+import BaseDialog from '@/components/BaseDialog.vue';
+import AddFeedbackForm from '@/components/AddFeedbackForm.vue';
+
+const isDialogOpen = ref(false);
 </script>
 
 <template>
@@ -13,7 +18,17 @@ import BaseButton from '@/components/BaseButton.vue';
     />
     <div class="flex gap-x-2 items-center">
       <BaseButton>All feedback</BaseButton>
-      <BaseButton variant="secondary">New feedback</BaseButton>
+      <BaseDialog title="Add new feedback" v-model="isDialogOpen">
+        <template #trigger>
+          <BaseButton variant="secondary">New feedback</BaseButton>
+        </template>
+        <template #content>
+          <AddFeedbackForm
+            @discard="isDialogOpen = false"
+            @submit="isDialogOpen = false"
+          />
+        </template>
+      </BaseDialog>
     </div>
   </header>
 </template>
