@@ -11,7 +11,7 @@ router.post('/', async (req, res, next) => {
     const feedbackData = feedbackSchema.parse(req.body);
     const feedback = new Feedback(feedbackData);
     await feedback.save();
-    res.status(201).send(feedback);
+    res.status(201).send({ feedback: feedback });
   } catch (error) {
     next(error);
   }
@@ -30,7 +30,7 @@ router.get('/', async (req, res, next) => {
       .sort({ [sort]: order === 'asc' ? 1 : -1 })
       .skip((page - 1) * limit)
       .limit(limit);
-    res.status(200).send(feedbacks);
+    res.status(200).send({ feedbacks: feedbacks });
   } catch (error) {
     next(error);
   }
