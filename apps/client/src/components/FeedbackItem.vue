@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { useTimeAgo } from '@vueuse/core';
-import type { Feedback } from 'types';
+import type { FeedbackWithId } from 'types';
 import BugIcon from '@/assets/images/icons/bug.svg';
 import SuggestionIcon from '@/assets/images/icons/suggestion.svg';
 
 interface Props {
-  feedback: Feedback;
+  feedback: FeedbackWithId;
   isSelected?: boolean;
 }
 
@@ -18,7 +18,7 @@ const formattedTimeAgo = useTimeAgo(props.feedback.createdAt as Date);
 
 <template>
   <div
-    class="flex p-2 justify-between gap-x-2 rounded-md"
+    class="flex p-2 justify-between gap-x-2 rounded-md cursor-pointer"
     :class="isSelected ? 'bg-light-gray' : 'bg-white'"
   >
     <div class="flex gap-x-2">

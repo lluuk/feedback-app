@@ -2,7 +2,7 @@
 import { Form } from 'vee-validate';
 import { toTypedSchema } from '@vee-validate/zod';
 import { feedbackSchema } from 'validation';
-import { Feedback, FeedbackTypeEnum } from 'types';
+import { FeedbackTypeEnum, type FeedbackWithId } from 'types';
 import { useToast } from 'vue-toastification';
 
 import { useAxios } from '@vueuse/integrations/useAxios';
@@ -26,7 +26,7 @@ const toast = useToast();
 
 const onSubmit = async (values: any) => {
   try {
-    const { data } = await useAxios<{ feedback: Feedback }>(
+    const { data } = await useAxios<{ feedback: FeedbackWithId }>(
       '/api/feedback',
       { method: 'POST', data: values },
       axiosInstance,

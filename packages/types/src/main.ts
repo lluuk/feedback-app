@@ -9,3 +9,7 @@ export enum FeedbackTypeEnum {
 export type FeedbackType = `${FeedbackTypeEnum}`;
 
 export type Feedback = z.infer<typeof feedbackSchema>;
+
+export interface FeedbackWithId extends Feedback {
+  _id: string;
+}
