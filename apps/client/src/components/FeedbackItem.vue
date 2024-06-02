@@ -2,8 +2,8 @@
 import { computed } from 'vue';
 import { intlFormatDistance } from 'date-fns';
 import type { Feedback } from 'types';
-import BugIcon from '../assets/images/icons/bug.svg';
-import SuggestionIcon from '../assets/images/icons/suggestion.svg';
+import BugIcon from '@/assets/images/icons/bug.svg';
+import SuggestionIcon from '@/assets/images/icons/suggestion.svg';
 
 interface Props {
   feedback: Feedback;
