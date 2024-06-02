@@ -19,7 +19,7 @@ import { useField } from 'vee-validate';
 
 interface Props {
   options: string[];
-  value: string;
+  value?: string;
   name: string;
   label: string;
   placeholder?: string;
@@ -45,6 +45,9 @@ const textColorClass = computed(() =>
 const borderColorClass = computed(() =>
   errorMessage.value ? 'border-red' : 'border-default-border-gray',
 );
+
+const capitalize = (option: string) =>
+  option && option[0].toUpperCase() + option.slice(1);
 </script>
 
 <template>
@@ -59,7 +62,7 @@ const borderColorClass = computed(() =>
       class="inline-flex"
     >
       <SelectTrigger
-        class="inline-flex min-w-[160px] items-center justify-between rounded border px-[15px] text-sm leading-none h-[35px] gap-[5px] bg-whiteshadow-[0_2px_10px] shadow-black/10 hover:bg-mauve3 focus:shadow-[0_0_0_2px] focus:shadow-black data-[placeholder]:text-green9 outline-none"
+        class="inline-flex min-w-[160px] font-medium items-center justify-between rounded border pl-2 pr-[15px] text-sm leading-none h-[35px] gap-[5px] bg-whiteshadow-[0_2px_10px] shadow-black/10 hover:bg-mauve3 focus:shadow-[0_0_0_2px] focus:shadow-black data-[placeholder]:text-green9 outline-none"
         :class="[textColorClass, borderColorClass]"
         aria-label="Customise options"
       >
@@ -94,7 +97,7 @@ const borderColorClass = computed(() =>
                   <Icon icon="radix-icons:check" />
                 </SelectItemIndicator>
                 <SelectItemText>
-                  {{ option }}
+                  {{ capitalize(option) }}
                 </SelectItemText>
               </SelectItem>
             </SelectGroup>

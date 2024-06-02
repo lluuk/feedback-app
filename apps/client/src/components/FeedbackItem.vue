@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import { intlFormatDistance } from 'date-fns';
+import { useTimeAgo } from '@vueuse/core';
 import type { Feedback } from 'types';
 import BugIcon from '@/assets/images/icons/bug.svg';
 import SuggestionIcon from '@/assets/images/icons/suggestion.svg';
@@ -14,9 +13,7 @@ const props = withDefaults(defineProps<Props>(), {
   isSelected: false,
 });
 
-const formattedTime = computed(() =>
-  intlFormatDistance(new Date(), props.feedback.createdAt as Date),
-);
+const formattedTimeAgo = useTimeAgo(props.feedback.createdAt as Date);
 </script>
 
 <template>
@@ -33,7 +30,7 @@ const formattedTime = computed(() =>
       </div>
     </div>
     <div class="text-defaul-text-gray text-xs self-end">
-      {{ formattedTime }}
+      {{ formattedTimeAgo }}
     </div>
   </div>
 </template>

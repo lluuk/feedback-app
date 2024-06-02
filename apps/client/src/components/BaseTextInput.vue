@@ -3,14 +3,17 @@ import { toRef } from 'vue';
 import { useField } from 'vee-validate';
 
 interface Props {
-  type: string;
-  value: string;
+  type?: string;
+  value?: string;
   name: string;
   label: string;
   placeholder?: string;
 }
 
-const props = defineProps<Props>();
+const props = withDefaults(defineProps<Props>(), {
+  value: '',
+  type: 'text',
+});
 
 const name = toRef(props, 'name');
 
