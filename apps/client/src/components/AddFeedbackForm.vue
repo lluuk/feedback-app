@@ -2,19 +2,15 @@
 import { Form } from 'vee-validate';
 import { toTypedSchema } from '@vee-validate/zod';
 import { feedbackSchema } from 'validation';
-import { FeedbackTypeEnum, type FeedbackWithId } from 'types';
-import { useToast } from 'vue-toastification';
-
-import { useAxios } from '@vueuse/integrations/useAxios';
+import { FeedbackTypeEnum } from 'types';
 
 import BaseTextInput from '@/components/BaseTextInput.vue';
 import BaseSelect from '@/components/BaseSelect.vue';
 import BaseButton from '@/components/BaseButton.vue';
 
-import { axiosInstance } from '@/services/axios';
 import { useFeedback } from '@/stores/feedback';
 
-const { setFeedbacks, feedbacks } = useFeedback();
+const { createNewFeedback } = useFeedback();
 
 const selectOptions = Object.values(FeedbackTypeEnum);
 
@@ -22,26 +18,9 @@ const validationSchema = toTypedSchema(feedbackSchema);
 
 const emits = defineEmits(['discard', 'submit']);
 
-const toast = useToast();
-
 const onSubmit = async (values: any) => {
-  try {
-    const { data } = await useAxios<{ feedback: FeedbackWithId }>(
-      '/api/feedback',
-      { method: 'POST', data: values },
-      axiosInstance,
-    );
-
-    if (data.value?.feedback) {
-      setFeedbacks([data.value.feedback, ...feedbacks.value]);
-      toast.success('Feedback succesfully created!');
-      emits('submit');
-    }
-  } catch (error) {
-    if (error instanceof Error) {
-      toast.error(error.message);
-    }
-  }
+  await createNewFeedback(values);
+  emits('submit');
 };
 </script>
 
