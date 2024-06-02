@@ -18,12 +18,8 @@ router.post('/', async (req, res, next) => {
 });
 
 router.get('/', async (req, res, next) => {
-  const { page, limit, sort, order, filterKey, filterValue } =
-    querySchema.parse(req.query);
-  const query =
-    filterKey && filterValue
-      ? { [filterKey]: new RegExp(filterValue, 'i') }
-      : {};
+  const { page, limit, sort, order, filter } = querySchema.parse(req.query);
+  const query = filter ? { type: new RegExp(filter, 'i') } : {};
 
   try {
     const feedbacks = await Feedback.find(query)
