@@ -30,9 +30,22 @@ const {
     class="flex flex-col gap-y-2 w-auto"
   >
     <label :for="name">{{ label }}</label>
-    <input
+    <textarea
+      v-if="type === 'textarea'"
       v-bind="$attrs"
-      class="border rounded border-default-border-gray h-9 px-2"
+      class="border rounded border-default-border-gray p-[5px]"
+      :class="errorMessage ? 'border-red' : 'border-default-border-gray'"
+      :name="name"
+      :id="name"
+      :value="inputValue"
+      :placeholder="placeholder"
+      @input="handleChange"
+      @blur="handleBlur"
+    />
+    <input
+      v-else
+      v-bind="$attrs"
+      class="border rounded border-default-border-gray p-[5px]"
       :class="errorMessage ? 'border-red' : 'border-default-border-gray'"
       :name="name"
       :id="name"
