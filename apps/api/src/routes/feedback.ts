@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { Feedback } from '../models/feedback';
 import { feedbackSchema } from 'validation';
+import { Feedback } from '../models/feedback';
 import { errorHandler } from '../middlewares/error';
 import { querySchema } from '../schemas/feedback-query';
 
