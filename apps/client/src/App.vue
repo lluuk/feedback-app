@@ -27,7 +27,7 @@ onMounted(getFeedbacks);
           @click="isHidden = !isHidden"
           variant="secondary"
           size="sm"
-          class="sm:none m-1"
+          class="sm:hidden m-1"
         >
           {{ isHidden ? 'Show' : 'Hide' }}
         </BaseButton>
