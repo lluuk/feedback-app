@@ -16,6 +16,7 @@ import {
   SelectViewport,
 } from 'radix-vue';
 import { useField } from 'vee-validate';
+import { capitalize } from '@/lib/utils';
 
 interface Props {
   options: string[];
@@ -45,9 +46,6 @@ const textColorClass = computed(() =>
 const borderColorClass = computed(() =>
   errorMessage.value ? 'border-red' : 'border-default-border-gray',
 );
-
-const capitalize = (option: string) =>
-  option && option[0].toUpperCase() + option.slice(1);
 </script>
 
 <template>

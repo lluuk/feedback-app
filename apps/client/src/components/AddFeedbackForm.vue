@@ -5,7 +5,7 @@ import { feedbackSchema } from 'validation';
 import { FeedbackTypeEnum } from 'types';
 
 import BaseTextInput from '@/components/BaseTextInput.vue';
-import BaseSelect from '@/components/BaseSelect.vue';
+import FormSelect from '@/components/FormSelect.vue';
 import BaseButton from '@/components/BaseButton.vue';
 
 import { useFeedback } from '@/stores/feedback';
@@ -37,7 +37,7 @@ const onSubmit = async (values: any) => {
       type="email"
       class="max-w-[300px]"
     />
-    <BaseSelect
+    <FormSelect
       :options="selectOptions"
       placeholder="Select value"
       name="type"
