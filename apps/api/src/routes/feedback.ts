@@ -26,7 +26,10 @@ router.get('/', async (req, res, next) => {
       .sort({ [sort]: order === 'asc' ? 1 : -1 })
       .skip((page - 1) * limit)
       .limit(limit);
-    res.status(200).send({ feedbacks: feedbacks });
+    const feedbacksTotalCount = await Feedback.countDocuments(query);
+    res
+      .status(200)
+      .send({ feedbacks: feedbacks, totalCount: feedbacksTotalCount });
   } catch (error) {
     next(error);
   }
