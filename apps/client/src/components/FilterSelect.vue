@@ -17,8 +17,13 @@ import {
 
 import { capitalize } from '@/lib/utils';
 
+interface Option {
+  label: string;
+  value: string;
+}
+
 interface Props {
-  options: string[];
+  options: Option[];
   modelValue?: string;
   placeholder?: string;
 }
@@ -60,8 +65,8 @@ defineProps<Props>();
               <SelectItem
                 v-for="(option, index) in options"
                 :key="index"
-                class="leading-none px-[15px] py-2 text-md text-black rounded-[3px] flex items-center relative select-none data-[disabled]:text-defaul-text-gray data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-green9 data-[highlighted]:text-black flex-grow"
-                :value="option"
+                class="leading-none px-[15px] py-2 text-sm sm:text-base text-black rounded-[3px] flex items-center relative select-none data-[disabled]:text-defaul-text-gray data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-green9 data-[highlighted]:text-black flex-grow"
+                :value="option.value"
               >
                 <SelectItemIndicator
                   class="absolute left-0 inline-flex items-center justify-center"
@@ -69,7 +74,7 @@ defineProps<Props>();
                   <Icon icon="radix-icons:check" />
                 </SelectItemIndicator>
                 <SelectItemText>
-                  {{ capitalize(option) }}
+                  {{ capitalize(option.label) }}
                 </SelectItemText>
               </SelectItem>
             </SelectGroup>
