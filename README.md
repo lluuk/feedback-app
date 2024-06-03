@@ -1,12 +1,12 @@
 # Feedback-app
 
-This is a monorepo containing both frontend and backend applications.
+This is a monorepo using pnpm workspaces and containing both client and api applications.
 
 ## Structure
 
 - `apps/`
   - `client/` - Frontend application built with Vue 3, Vite, TypeScript and TailwindCSS
-  - `backend/` - Backend application built with Express, TypeScript, MongoDB, and Mongoose
+  - `api/` - Backend application built with Express, TypeScript, MongoDB, and Mongoose
 - `packages/`
   - `types/` - Shared TypeScript types
   - `validation/` - Shared Zod schemas for validation
