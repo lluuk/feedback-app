@@ -66,9 +66,10 @@ To install MongoDB, follow these steps:
 
 The api application expects a MongoDB connection string. You can configure the connection string in an environment variable or directly in your code.
 
-#### Environment Variable
+#### Environment Variables
 
-Replace a .env.example with .env file in the apps/api directory and add your MongoDB connection string
+1. Replace an .env.example with .env file in the apps/api directory and add your MongoDB connection string.
+2. Replace an .env.example with .env file in the apps/client directory
 
 ### Application start
 
