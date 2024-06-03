@@ -32,7 +32,9 @@ const {
     :class="errorMessage ? 'text-red' : 'text-black'"
     class="flex flex-col gap-y-2 w-auto"
   >
-    <label :for="name" class="font-medium">{{ label }}</label>
+    <label :for="name" class="font-medium text-sm sm:text-base">
+      {{ label }}
+    </label>
     <textarea
       v-if="type === 'textarea'"
       v-bind="$attrs"
@@ -59,7 +61,7 @@ const {
       @blur="handleBlur"
     />
 
-    <p v-show="errorMessage" class="text-red">
+    <p v-show="errorMessage" class="text-red text-sm sm:text-base">
       {{ errorMessage }}
     </p>
   </div>

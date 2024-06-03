@@ -50,7 +50,11 @@ const borderColorClass = computed(() =>
 
 <template>
   <div class="flex flex-col gap-y-2 justify-between">
-    <label :for="name" :class="textColorClass" class="font-medium">
+    <label
+      :for="name"
+      :class="textColorClass"
+      class="font-medium text-sm sm:text-base"
+    >
       {{ label }}
     </label>
     <SelectRoot

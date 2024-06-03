@@ -36,12 +36,14 @@ withDefaults(defineProps<Props>(), {
         <DialogContent
           class="p-6 data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[770px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none z-[100] overflow-y-auto"
         >
-          <DialogTitle class="text-black text-2xl m-0 font-medium mb-6">
+          <DialogTitle
+            class="text-black text-xl sm:text-2xl m-0 font-medium mb-6"
+          >
             {{ title }}
           </DialogTitle>
 
           <div
-            class="w-[calc(100%+48px)] h-[1px] bg-default-border-gray mb-6 -ml-6"
+            class="w-[calc(100%+48px)] h-[1px] bg-default-border-gray mb-6 -ml-6 -mr-6"
           />
 
           <div>

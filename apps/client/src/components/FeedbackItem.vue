@@ -8,7 +8,7 @@ import { computed } from 'vue';
 interface Props {
   feedback: FeedbackWithId;
   isSelected?: boolean;
-  variant: 'short' | 'full';
+  variant?: 'short' | 'full';
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -25,7 +25,7 @@ const formattedTimeAgo = computed(
   <div
     v-if="variant === 'short'"
     class="flex p-2 justify-between gap-x-2 rounded-md cursor-pointer"
-    :class="isSelected ? 'bg-gray' : 'bg-white'"
+    :class="isSelected && 'bg-gray'"
   >
     <div class="flex gap-x-2">
       <BugIcon v-if="feedback.type === 'bug'" />
@@ -55,7 +55,7 @@ const formattedTimeAgo = computed(
         {{ feedback.name }} ({{ feedback.email }})
       </div>
 
-      <p v-html="feedback.message" />
+      <p class="mt-6" v-html="feedback.message" />
     </div>
   </div>
 </template>
