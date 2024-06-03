@@ -3,6 +3,7 @@ import { useTimeAgo } from '@vueuse/core';
 import type { FeedbackWithId } from 'types';
 import BugIcon from '@/assets/images/icons/bug.svg';
 import SuggestionIcon from '@/assets/images/icons/suggestion.svg';
+import { computed } from 'vue';
 
 interface Props {
   feedback: FeedbackWithId;
@@ -15,14 +16,16 @@ const props = withDefaults(defineProps<Props>(), {
   variant: 'short',
 });
 
-const formattedTimeAgo = useTimeAgo(props.feedback.createdAt as Date);
+const formattedTimeAgo = computed(
+  () => useTimeAgo(props.feedback.createdAt as Date).value,
+);
 </script>
 
 <template>
   <div
     v-if="variant === 'short'"
     class="flex p-2 justify-between gap-x-2 rounded-md cursor-pointer"
-    :class="isSelected ? 'bg-light-gray' : 'bg-white'"
+    :class="isSelected ? 'bg-gray' : 'bg-white'"
   >
     <div class="flex gap-x-2">
       <BugIcon v-if="feedback.type === 'bug'" />
