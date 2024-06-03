@@ -79,7 +79,7 @@ To start application just run command:
 pnpm start
 ```
 
-After the applications start the server should run on [localhost: 5000](http://localhost:5000) and client on [localhost:5173](https://localhost:517) by default
+After the applications start the server should run on [localhost: 5000](http://localhost:5000) and client on [localhost:4173](https://localhost:4173) by default
 
 Additionall useful commands:
 
