@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "build": "tsc && tsc-alias",
-    "start": "node build/index.js",
-    "start:dev": "nodemon"
+    "start": "pnpm build && node build/index.js",
+    "dev": "nodemon"
   },
   "keywords": [],
   "author": "",

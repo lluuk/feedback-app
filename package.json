@@ -10,7 +10,10 @@
     "types": "pnpm --filter types",
     "api": "pnpm --filter api",
     "validation": "pnpm --filter validation",
-    "client": "pnpm --filter client"
+    "client": "pnpm --filter client",
+    "start": "pnpm --stream -r run start",
+    "dev": "pnpm --parallel --stream -r run dev",
+    "build": "pnpm --stream -r run build"
   },
   "keywords": [],
   "author": "",

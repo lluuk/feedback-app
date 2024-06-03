@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "start": "vite preview"
   },
   "dependencies": {
     "@iconify/vue": "^4.1.2",

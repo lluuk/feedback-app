@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "start": "pnpm build",
     "preview": "vite preview"
   },
   "devDependencies": {
